@@ -23,15 +23,17 @@ public class HelloController {
     }
 //    hendels request using query param /queryparam?name=sejal
     @GetMapping("queryparam")
-    @ResponseBody
-    public String helloUsingQueryParameter(@RequestParam String name){
-        return " Hello "+ name + " ! ";
+    public String helloUsingQueryParameter(@RequestParam String name, Model model){
+        String greetings = "Hello "+ name +"!";
+        model.addAttribute("greeting",greetings);
+        return "hello";
     }
 //    handels request using path parameter /hello/sejal
     @GetMapping("hello/{name}")
-//    @ResponseBody
-    public String helloUsingPathVariable(@PathVariable String name){
-        return " Hello "+ name + " ! ";
+    public String helloUsingPathVariable(@PathVariable String name, Model model){
+        String greetings = "Hello "+ name +"!";
+        model.addAttribute("greeting",greetings);
+        return "hello";
 //        return "redirect:/hello";
     }
 
@@ -41,7 +43,18 @@ public class HelloController {
 
     }
 
-    @GetMapping("coffeelist")
+    @GetMapping("hellonames")
+    public String nameList(Model model){
+        List<String> namelist = new ArrayList<>();
+        namelist.add("Sejal");
+        namelist.add("Sandeep");
+        namelist.add("saksham");
+        namelist.add("Shreya");
+        model.addAttribute("names",namelist);
+        return "hello-list";
+    }
+
+    @GetMapping("coffee")
     public String coffeeList(Model model){
         List<String> coffeelist = new ArrayList<>();
         coffeelist.add("French Roast");
@@ -51,5 +64,7 @@ public class HelloController {
         model.addAttribute("coffeeOptions ",coffeelist );
         return "chapter-example-coffeeTemplate";
     }
+
+
 
 }
