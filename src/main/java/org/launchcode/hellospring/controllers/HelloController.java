@@ -1,7 +1,11 @@
 package org.launchcode.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -35,6 +39,17 @@ public class HelloController {
     public String helloUsingForm(){
         return "form";
 
+    }
+
+    @GetMapping("coffeelist")
+    public String coffeeList(Model model){
+        List<String> coffeelist = new ArrayList<>();
+        coffeelist.add("French Roast");
+        coffeelist.add("Espresso");
+        coffeelist.add("Kopi Luwak");
+        coffeelist.add("Instant");
+        model.addAttribute("coffeeOptions ",coffeelist );
+        return "chapter-example-coffeeTemplate";
     }
 
 }
