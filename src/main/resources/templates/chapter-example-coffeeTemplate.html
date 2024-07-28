@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<!--<h1>Java Types</h1>-->
+<div class="coffeeList">
+    <h3>Java Types</h3>
+    <ul>
+        <th:block th:each="item : ${coffeeOptions}">
+            <li th:text="${item}"></li>
+        </th:block>
+    </ul>
+</div>
+<hr>
+<div class="links">
+    <h2>Links</h2>
+    <a href="https://www.launchcode.org/">LaunchCode</a> <br>
+    <a href="https://en.wikipedia.org/wiki/Coffee">Coffee</a>
+</div>
+</body>
+</html>
