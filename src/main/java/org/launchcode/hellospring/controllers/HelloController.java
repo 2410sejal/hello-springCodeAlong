@@ -27,7 +27,7 @@ public class HelloController {
     public String helloUsingQueryParameter(@RequestParam String name, Model model){
         String greetings = "Hello "+ name +"!";
         model.addAttribute("greeting",greetings);
-        return "hello";
+        return "hello and hi";
     }
 //    handels request using path parameter /hello/sejal
     @GetMapping("hello/{name}")
