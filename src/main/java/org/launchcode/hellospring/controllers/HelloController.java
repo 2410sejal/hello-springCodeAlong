@@ -12,6 +12,7 @@ public class HelloController {
 //    handles request at path /hello
     @RequestMapping(value="hello",method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
+
     public String hello(String name){
         return "Hello "+ name + "!";
     }
